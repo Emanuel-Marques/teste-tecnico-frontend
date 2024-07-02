@@ -2,9 +2,10 @@ import './App.css'
 import Header from './components/Header';
 import Table from './components/Table';
 import searchIcon from './assets/Icons/Default.svg';
+import { useState } from 'react';
 
 function App() {
-
+  const [searchQuery, setSearchQuery] = useState("");
   return (
     <>
       <Header />
@@ -15,11 +16,17 @@ function App() {
             <div className="relative mb-6 w-full md:w-auto">
               <div className="absolute inset-y-0 end-3 flex items-center ps-3.5 pointer-events-none">
                 <img src={searchIcon} className="w-4 h-4 text-[#9E9E9E] text-[#DFDFDF]" alt="Search Icon" />
-              </div>
-              <input type="text" id="input-group-1" className="bg-gray-50 border border-gray-300 text-[#DFDFDF] text-sm rounded-lg block w-full  p-2.5  dark:placeholder-gray-400 " placeholder="Pesquisar" />
+              </div><input
+                type="text"
+                id="input-group-1"
+                className="bg-gray-50 border border-gray-300 text-[#DFDFDF] text-sm rounded-lg block w-full p-2.5 dark:placeholder-gray-400"
+                placeholder="Pesquisar"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
             </div>
           </div>
-          <Table />
+          <Table searchQuery={searchQuery} />
         </div>
       </main>
     </>

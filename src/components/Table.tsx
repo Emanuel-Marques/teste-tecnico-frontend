@@ -4,8 +4,9 @@ import formatDate from "../utils/formatDate";
 import arrowDown from '../assets/Icons/Vector.png';
 import arrowUp from '../assets/Icons/charm_chevron-up-colored.png';
 
-export default function Table() {
+export default function Table({ searchQuery }) {
     const [employees, setEmployees] = useState<EmployeeType[]>([]);
+    const [filteredEmployees, setFilteredEmployees] = useState<EmployeeType[]>([]);
     const [openAccordion, setOpenAccordion] = useState<number | null>(0);
 
 
@@ -17,6 +18,14 @@ export default function Table() {
         }
         fetchData();
     }, []);
+
+    useEffect(() => {
+        const filtered = employees.filter(employee => 
+            employee.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            employee.job.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+        setFilteredEmployees(filtered);
+    }, [searchQuery, employees]);
 
 
     const toggleAccordion = (id: number) => {
@@ -49,7 +58,7 @@ export default function Table() {
                     </tr>
                 </thead>
                 <tbody>
-                    {employees.map(employee => (
+                    {filteredEmployees.map(employee => (
                         <>
                             <tr key={employee.id} className="bg-[#FFFFFF] border-t-2  border-[#9E9E9E] hover:bg-gray-50">
                                 <th scope="row" className="px-6 py-4 font-medium">
