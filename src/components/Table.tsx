@@ -3,6 +3,7 @@ import { EmployeeType } from "../utils/types";
 import formatDate from "../utils/formatDate";
 import arrowDown from '../assets/Icons/Vector.png';
 import arrowUp from '../assets/Icons/charm_chevron-up-colored.png';
+import elipse from '../assets/Icons/Ellipse 1.png';
 
 export default function Table({ searchQuery }) {
     const [employees, setEmployees] = useState<EmployeeType[]>([]);
@@ -33,7 +34,7 @@ export default function Table({ searchQuery }) {
     };
 
     return (
-        <div className="relative overflow-x-auto shadow-md sm:rounded-t-lg">
+        <div className="relative overflow-x-auto shadow-md rounded-t-lg ">
             <table className="w-full text-sm text-left text-[#1C1C1C]">
                 <thead className="text-xs text-gray-700 uppercase bg-gradient-to-b from-custom-blue to-custom-purple text-white">
                     <tr>
@@ -44,7 +45,7 @@ export default function Table({ searchQuery }) {
                             Nome
                         </th>
                         <th scope="col" className="px-6 py-3 md:hidden">
-                            <span className="sr-only">Ver Mais</span>
+                            <span className="text-right"><img src={elipse} alt="elipse" /></span>
                         </th>
                         <th scope="col" className="px-6 py-3 hidden md:table-cell">
                             Cargo
