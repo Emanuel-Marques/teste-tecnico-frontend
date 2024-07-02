@@ -75,7 +75,7 @@ export default function Table() {
                                 </td>
                             </tr>
                             {openAccordion === employee.id && (
-                                <tr className="md:hidden">
+                                <tr key={employee.id} className="md:hidden">
                                     <td colSpan={3} className="px-6 py-4">
                                         <div className="flex justify-between border-dashed border-b-2 mt-3">
                                             <p><strong>Cargo:</strong></p>
