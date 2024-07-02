@@ -4,7 +4,7 @@ import formatDate from "../utils/formatDate";
 
 export default function Table() {
     const [employees, setEmployees] = useState<EmployeeType[]>([]);
-    const [openAccordion, setOpenAccordion] = useState(null);
+    const [openAccordion, setOpenAccordion] = useState<number | null>(0);
 
 
     useEffect(() => {
@@ -17,7 +17,7 @@ export default function Table() {
     }, []);
 
 
-    const toggleAccordion = (id) => {
+    const toggleAccordion = (id:number) => {
         setOpenAccordion(openAccordion === id ? null : id);
     };
 
@@ -48,6 +48,7 @@ export default function Table() {
                 </thead>
                 <tbody>
                     {employees.map(employee => (
+                        <>
                         <tr key={employee.id} className="bg-[#FFFFFF] border-b-2  border-[#9E9E9E] hover:bg-gray-50">
                             <th scope="row" className="px-6 py-4 font-medium">
                                 <img src={employee.image} width={34} height={34} className="rounded-full" alt="" />
@@ -69,7 +70,8 @@ export default function Table() {
                             <td className="px-6 py-4 hidden md:table-cell">
                                 {employee.phone}
                             </td>
-                            {openAccordion === employee.id && (
+                        </tr>
+                        {openAccordion === employee.id && (
                             <tr className="md:hidden">
                                 <td colSpan={3} className="px-6 py-4">
                                     <div className="p-4 border-t border-gray-200">
@@ -80,7 +82,7 @@ export default function Table() {
                                 </td>
                             </tr>
                         )}
-                        </tr>
+                        </>
                     ))}
                 </tbody>
             </table>
