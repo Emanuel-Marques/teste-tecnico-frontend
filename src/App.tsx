@@ -19,7 +19,7 @@ function App() {
               </div><input
                 type="text"
                 id="input-group-1"
-                className="bg-gray-50 border border-gray-300 text-[#DFDFDF] text-sm rounded-lg block w-full p-2.5 dark:placeholder-gray-400"
+                className="bg-[#FFF] border border-gray-300 text-[#DFDFDF] text-sm rounded-lg block w-full p-2.5 dark:placeholder-gray-400"
                 placeholder="Pesquisar"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
