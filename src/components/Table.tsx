@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { EmployeeType } from "../utils/types";
 import formatDate from "../utils/formatDate";
+import arrowDown from '../assets/Icons/Vector.png';
+import arrowUp from '../assets/Icons/charm_chevron-up-colored.png';
 
 export default function Table() {
     const [employees, setEmployees] = useState<EmployeeType[]>([]);
@@ -17,7 +19,7 @@ export default function Table() {
     }, []);
 
 
-    const toggleAccordion = (id:number) => {
+    const toggleAccordion = (id: number) => {
         setOpenAccordion(openAccordion === id ? null : id);
     };
 
@@ -49,39 +51,47 @@ export default function Table() {
                 <tbody>
                     {employees.map(employee => (
                         <>
-                        <tr key={employee.id} className="bg-[#FFFFFF] border-b-2  border-[#9E9E9E] hover:bg-gray-50">
-                            <th scope="row" className="px-6 py-4 font-medium">
-                                <img src={employee.image} width={34} height={34} className="rounded-full" alt="" />
-                            </th>
-                            <td className="px-6 py-4">
-                                {employee.name}
-                            </td>
-                            <td className="px-6 py-4 md:hidden text-center">
-                                <button onClick={() => toggleAccordion(employee.id)}>
-                                    {openAccordion === employee.id ? '▲' : '▼'}
-                                </button>
-                            </td>
-                            <td className="px-6 py-4 hidden md:table-cell">
-                                {employee.job}
-                            </td>
-                            <td className="px-6 py-4 hidden md:table-cell">
-                                {formatDate(employee.admission_date)}
-                            </td>
-                            <td className="px-6 py-4 hidden md:table-cell">
-                                {employee.phone}
-                            </td>
-                        </tr>
-                        {openAccordion === employee.id && (
-                            <tr className="md:hidden">
-                                <td colSpan={3} className="px-6 py-4">
-                                    <div className="p-4 border-t border-gray-200">
-                                        <p><strong>Cargo:</strong> {employee.job}</p>
-                                        <p><strong>Data de emissão:</strong> {formatDate(employee.admission_date)}</p>
-                                        <p><strong>Telefone:</strong> {employee.phone}</p>
-                                    </div>
+                            <tr key={employee.id} className="bg-[#FFFFFF] border-t-2  border-[#9E9E9E] hover:bg-gray-50">
+                                <th scope="row" className="px-6 py-4 font-medium">
+                                    <img src={employee.image} width={34} height={34} className="rounded-full" alt="" />
+                                </th>
+                                <td className="px-6 py-4">
+                                    {employee.name}
+                                </td>
+                                <td className="px-6 py-4 md:hidden text-right">
+                                    <button onClick={() => toggleAccordion(employee.id)}>
+                                        {openAccordion === employee.id ?
+                                            <img className="" src={arrowUp} alt="Seta virada para cima" /> : <img src={arrowDown} alt="Seta virada para baixo" />}
+                                    </button>
+                                </td>
+                                <td className="px-6 py-4 hidden md:table-cell">
+                                    {employee.job}
+                                </td>
+                                <td className="px-6 py-4 hidden md:table-cell">
+                                    {formatDate(employee.admission_date)}
+                                </td>
+                                <td className="px-6 py-4 hidden md:table-cell">
+                                    {employee.phone}
                                 </td>
                             </tr>
-                        )}
+                            {openAccordion === employee.id && (
+                                <tr className="md:hidden">
+                                    <td colSpan={3} className="px-6 py-4">
+                                        <div className="flex justify-between border-dashed border-b-2 mt-3">
+                                            <p><strong>Cargo:</strong></p>
+                                            <p>{employee.job}</p>
+                                        </div>
+                                        <div className="flex justify-between border-dashed border-b-2 mt-3">
+                                            <p><strong>Data de emissão:</strong></p>
+                                            <p>{formatDate(employee.admission_date)}</p>
+                                        </div>
+                                        <div className="flex justify-between border-dashed border-b-2 mt-3">
+                                            <p><strong>Telefone:</strong></p>
+                                            <p>{employee.phone}</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            )}
                         </>
                     ))}
                 </tbody>
