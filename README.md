@@ -1,6 +1,7 @@
 ### Desafio técnico frontend
 Este é um projeto frontend desenvolvido com React e Vite. Para simular um banco de dados, utilizei o JSON Server.
-![Uploading desafio-tecnico.gif…]()
+![desafio-tecnico](https://github.com/user-attachments/assets/6184cb03-754a-4118-a65c-2765647ae5c6)
+
 
 ## Requisitos
 - Node.js (versão 14 ou superior)
