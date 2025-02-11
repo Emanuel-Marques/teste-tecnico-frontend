@@ -56,6 +56,7 @@ yarn install
 ```
 <h4>Simulando o Banco de Dados</h4>
 Antes de iniciar o servidor de desenvolvimento, você precisa rodar o JSON Server para simular o banco de dados.
+
 ```bash
 cd src/data
 npx json-server db.json
