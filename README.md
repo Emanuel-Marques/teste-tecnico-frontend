@@ -6,7 +6,7 @@
 [NEXTJS_BADGE]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [TAILWINDCSS]: https://img.shields.io/badge/Tailwind_CSS-grey?style=for-the-badge&logo=tailwind-css&logoColor=38B2AC
 
-<h1 align="center" style="font-weight: bold;"> Blog Challenge - CodeLab 💻</h1>
+<h1 align="center" style="font-weight: bold;"> Teste Técnico Frontend 💻</h1>
 
 ![typescript][TYPESCRIPT__BADGE] 
 ![react][REACT__BADGE]
@@ -21,7 +21,7 @@
 </p>
 
 <p align="center">
-    <img src="./public/case-project.png" alt="Image Example" width="600px">
+    <img src="https://github.com/user-attachments/assets/6184cb03-754a-4118-a65c-2765647ae5c6" alt="Image Example" >
 </p>
 
 <h2 id="started">📌 Sobre</h2>
